@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace TimerList
 {
-    public class TimerList<T> : List<T>, IDisposable
+    public class TimerList<T> : List<T>
     {
         int objLifeTime;
         Timer timer;
         SortedSet<string> disposeTimer;
 
 
-        public new void Add(T o)
+        public new void Add(T o)        //переопределение метода Add для фиксирования времени добавления
         {
             base.Add(o);
             var t = DateTime.Now.AddSeconds(objLifeTime).ToLongTimeString();
@@ -31,7 +31,7 @@ namespace TimerList
             disposeTimer = new SortedSet<string>();
         }
 
-        private void DeleteInTime(object obj)
+        private void DeleteInTime(object obj)       //провека на удаление обьекта
         {
             var t = DateTime.Now.ToLongTimeString();
             if (disposeTimer.Remove(t))
@@ -41,10 +41,5 @@ namespace TimerList
             }
         }
 
-        public void Dispose()
-        {
-            timer.Dispose();
-            Console.WriteLine("Dispose TimerList");
-        }
     }
 }

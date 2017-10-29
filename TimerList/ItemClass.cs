@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TimerList
 {
-    public class ItemClass
+    public class ItemClass          // класс обьекта добавляемого в коллекцию 
     {
         public string Name { get; set; }
         public string timeCreated { get; set; }

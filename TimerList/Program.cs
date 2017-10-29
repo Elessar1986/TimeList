@@ -13,8 +13,8 @@ namespace TimerList
         {
             try
             {
-                using (TimerList<ItemClass> test = new TimerList<ItemClass>(5))
-                {
+                TimerList<ItemClass> test = new TimerList<ItemClass>(5);
+                
                     for (int i = 1; i < 10; i++)
                     {
                         test.Add(new ItemClass($"Obj{i}"));
@@ -22,7 +22,7 @@ namespace TimerList
                     }
 
                     Console.ReadKey();
-                }
+                
             }
             catch(Exception ex)
             {
